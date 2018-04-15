@@ -5,7 +5,7 @@ import com.maven.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @Author : yangxudong
@@ -31,4 +31,29 @@ public class CustomerController {
         customerService.addCustomer(customer);
         return "success";
     }
+
+    @GetMapping("/doGet")
+    public String getInfo() {
+        System.out.println("测试GET");
+        return "success";
+    }
+
+    @PostMapping("/doPost")
+    public String postInfo(Customer customer) {
+        System.out.println("测试POST" + customer.toString());
+        return "success";
+    }
+
+    @PutMapping("/doPut/{id}")
+    public String putCustomer(@PathVariable Integer id) {
+        System.out.println("put:" + id);
+        return "success";
+    }
+
+    @DeleteMapping("/doDelete/{id}")
+    public String deleteCustomer(@PathVariable Integer id) {
+        System.out.println("delete:" + id);
+        return "success";
+    }
+
 }
