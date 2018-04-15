@@ -27,6 +27,7 @@ public class CustomerController {
     @RequestMapping("/addCustomer")
     public String addCustomer(Customer customer) {
         System.out.println("这是b提交的");
+        System.out.println("这是b在分支上进行的操作");
         customerService.addCustomer(customer);
         return "success";
     }
